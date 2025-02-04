@@ -19,9 +19,9 @@ jobs:
           node-version: '20'
       - name: Install dependancies
         run: npm install    
-        if: ${{ github.event_name == 'push' }}
       - name: Check style
         run: npm run eslint
+        if: ${{ github.event_name == 'push' }}
       # - name: Test
       #   run: npm test
       - name: Bump version and push tag
