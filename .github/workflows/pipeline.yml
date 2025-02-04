@@ -10,7 +10,7 @@ on:
 
 jobs:
   simple_deployment_pipeline:
-    if: ${{ github.event_name == 'push' }}
+    
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -21,5 +21,6 @@ jobs:
         run: npm install    
       - name: Check style
         run: npm run eslint
-      # - name: Test
-      #   run: npm test
+      - name: Test
+        if: ${{ github.event_name == 'push' }}
+        run: npm test
